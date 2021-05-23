@@ -1,0 +1,59 @@
+<link type="text/css"  href="/public/style.css" rel="stylesheet">
+
+#{extends 'main.html' /}
+#{set title:'Station' /}
+#{menu id:"dashboard"/}
+
+#{list items:stations, as:'station'}
+
+<section class="ui segment">
+
+    <div class="ui five cards">
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">${station.name} </h2>
+                <h3 class="header"><i class="${station.latestWeatherIcon}"></i></h3>
+                <h3 class="header">${station.latitude}</h3>
+                <h3 class="header">${station.longitude}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Weather <i class="cloud sun icon"></i></h2>
+                <h3 class="header">${station.latestWeather}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Temp <i class="temperature low icon"></i></h2>
+                <h3 class="header">${station.celsius} C</h3>
+                <h3 class="header">${station.farenheit} F</h3>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Wind <i class="wind icon"></i></h2>
+                <h3 class="header">${station.latestWindSpeed} bft</h3>
+                <h3 class="header">${station.windCompass}</h3>
+                <h3 class="header">${station.windChill}</h3>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Pressure <i class="snowflake icon"></i>
+                </h2>
+                <h3 class="header">${station.showPressure} hpa</h3>
+
+            </div>
+        </div>
+        <a href="/stations/${station.id}" class="ui icon button">
+    <i class="icon folder open"></i>
+    </a>
+    <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui icon button">
+        <i class="icon trash"></i>
+    </a>
+</section>
+#{/list}
+#{addstation /}

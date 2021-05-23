@@ -1,0 +1,64 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+#{menu id:"station"/}
+
+<section class="ui segment">
+    <h2 class="ui header">
+        ${station.name}
+    </h2>
+
+    <div class="ui five cards">
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">${station.name} </h2>
+                <h3 class="header"><i class="${station.latestWeatherIcon}"></i></h3>
+                <h3 class="header">${station.latitude}</h3>
+                <h3 class="header">${station.longitude}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Weather <i class="cloud sun icon"></i></h2>
+                <h3 class="header">${station.latestWeather}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Temp <i class="temperature low icon"></i></h2>
+                <h3 class="header">${station.celsius} C</h3>
+                <h3 class="header">${station.farenheit} F</h3>
+                <h3 class="header">Max: ${maxTemp.temperature}</h3>
+                <h3 class="header">Min: ${minTemp.temperature}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Wind <i class="wind icon"></i></h2>
+                <h3 class="header">${station.latestWindSpeed} bft</h3>
+                <h3 class="header">${station.windCompass}</h3>
+                <h3 class="header">${station.windChill}</h3>
+                <h3 class="header">Max: ${maxWindSpeed.windSpeed}</h3>
+                <h3 class="header">Min: ${minWindSpeed.windSpeed}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="extra">
+                <h2 class="header">Pressure <i class="snowflake icon"></i>
+                </h2>
+                <h3 class="header">${station.showPressure} hpa</h3>
+                <h3 class="header">Max: ${maxPressure.pressure}</h3>
+                <h3 class="header">Min: ${minPressure.pressure}</h3>
+            </div>
+        </div>
+
+        #{list items:station.readings, as:'reading'}
+        <table class="ui table">
+        <tbody>
+        </tbody>
+            #{/list}
+
+        </table>
+        #{listreadings station:station /}
+        #{addreading station:station /}
+    </div>
+</section>
