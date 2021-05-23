@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e929f22-098d-41a5-96fe-d1caaae2ea9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/weather.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/playlist.iws" beforeDir="false" afterPath="$PROJECT_DIR$/playlist.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
